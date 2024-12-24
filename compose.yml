@@ -1,0 +1,13 @@
+services:
+  nginx:
+    image: nginx:latest
+    ports:
+      - 80:80
+    volumes:
+      - ./nginx:/etc/nginx/conf.d
+  php:
+    build: ./php
+    volumes:
+      - ./code:/app
+    expose:
+      - "9000"
